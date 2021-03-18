@@ -1,5 +1,6 @@
 {
   "name": "react-starter",
+  "homepage": "Andrian1993.github.io",
   "version": "1.0.0",
   "description": "A basic template that consists of the essential elements that are required to start building a React application",
   "scripts": {
@@ -16,7 +17,8 @@
     "lint": "eslint .; exit 0",
     "lint:fix": "eslint . --fix; exit 0",
     "start": "npm run serve:dev",
-    "test": "echo \"No tests available\"; exit 0"
+    "test": "echo \"No tests available\"; exit 0",
+    "deploy": "gh-pages -b master -d public"
   },
   "repository": {
     "type": "git",
@@ -45,7 +47,7 @@
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "live-server": "^1.2.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.12.0",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
@@ -58,8 +60,12 @@
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "gh-pages": "^3.1.0",
     "normalize.css": "^8.0.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "prop-types": "^15.7.2",
+    "react": "^16.6.0",
+    "react-countdown": "^2.3.1",
+    "react-dom": "^16.6.0"
   }
 }
