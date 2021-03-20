@@ -1,6 +1,8 @@
 import React from 'react';
 import {Box, Grid, makeStyles} from '@material-ui/core';
-import MainBg from '../img/mainBg.jpg';
+/*import MainBg from '../img/mainBg.jpg';
+import MainBg2 from '../img/bgPhoto2.jpg';*/
+import MainBg3 from '../img/bgPhoto3.jpg';
 import Countdown from 'react-countdown';
 import KakaoMap from './KakaoMap';
 
@@ -9,7 +11,7 @@ const useStyles = makeStyles({
         height: '100vh',
         width: '100%',
         // backgroundImage: `url(${MainBg})`,
-        background: `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(${MainBg}) center;`,
+        background: `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(${MainBg3}) center;`,
         // backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover'
@@ -22,8 +24,17 @@ const useStyles = makeStyles({
         fontSize: '45px',
         textAlign: 'center',
         fontFamily: 'Poiret One, cursive',
+    },
+    MainFont: {
+        fontFamily: 'Poiret One, cursive',
+    },
+    FontLobster: {
+        fontFamily: 'Lobster, cursive',
+    },
+    FontPacifico: {
+        fontFamily: 'Pacifico, cursive',
     }
-    
+
 });
 
 const Completionist = () => <Box textAlign={'center'}>You are good to go!</Box>;
@@ -60,7 +71,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 
 function App() {
     const classes = useStyles();
-    
+
     const markerPositions = [];
     const mapSize = [400, 400];
 
@@ -81,8 +92,8 @@ function App() {
         [37.49646391248451, 127.02675574250912]
     ];
 */
-    
-    
+
+
     return(
         <React.Fragment>
             <Box classes={{root: classes.MainBg}}>
@@ -90,12 +101,12 @@ function App() {
                     <Grid item>
                         <Box classes={{root: classes.MainText}} mx={{xs: 2, md: 'auto'}}>
                             <Box fontSize='56px'>Андриан и Ирина</Box>
-                            <Box fontSize='28px' mt={'20px'}>Наша свадьба состоится 24 апреля 2021 года</Box>
+                            <Box fontSize='28px' mt={'20px'}>24 апреля 2021 года</Box>
                         </Box>
                     </Grid>
                 </Grid>
             </Box>
-            <Box bgcolor={'#B1B882'} py={4} color={'#fff'} fontFamily={'Poiret One, cursive'}>
+            {/* <Box bgcolor={'#B1B882'} py={4} color={'#fff'} fontFamily={'Poiret One, cursive'}>
                 <Box textAlign={'center'} fontSize={'35px'} >Свадьба начнется через</Box>
                 <Box px={2} mt={'30px'} mx={'auto'} textAlign={'center'} maxWidth={'800px'}>
                     <Countdown
@@ -103,8 +114,22 @@ function App() {
                         renderer={renderer}
                     />
                 </Box>
+            </Box>*/}
+            <Box py={'87px'} bgcolor={'#f2d47f'} textAlign={'center'}>
+                <Box textAlign={'center'} fontSize={'35px'} >До свадьбы осталось</Box>
+                <Box px={2} mt={'30px'} mx={'auto'} textAlign={'center'} maxWidth={'800px'}>
+                    <Countdown
+                        date={new Date('2021/04/24 13:30:00')}
+                        renderer={renderer}
+                    />
+                </Box>
+                <Box my={'30px'} borderColor="black" width={'80%'} component={'hr'} />
+                <Box classes={{root: classes.FontPacifico}} fontSize={'25px'} lineHeight={'1.5em'}>КАК<br />ДОБРАТЬСЯ</Box>
+                <Box mt={'10px'} fontSize={'22px'}>서울 종로구 대학로 39</Box>
             </Box>
-            <KakaoMap markerPositions={markerPositions} size={mapSize} />
+            <Box>
+                <KakaoMap markerPositions={markerPositions} size={mapSize} />
+            </Box>
         </React.Fragment>
     );
 }

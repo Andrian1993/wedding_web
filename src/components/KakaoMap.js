@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+import {Box} from '@material-ui/core';
 
 export default function KakaoMap(props) {
     const { markerPositions, size } = props;
@@ -67,7 +68,7 @@ export default function KakaoMap(props) {
         }
     }, [kakaoMap, markerPositions]);
 
-    return <div id="container" ref={container} />;
+    return <Box m={'0 auto'} id="container" ref={container} />;
 }
 
 KakaoMap.propTypes = {
